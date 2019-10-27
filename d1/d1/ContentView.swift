@@ -11,12 +11,11 @@ import SwiftUI
 struct ContentView: View {
   var body: some View {
     Form {
-      // Group limitation
-      Group {
+      Section {
         Text("Hello 2")
         Text("Hello")
       }
-      Group {
+      Section {
         Text("WTF 1")
         Text("WTF World")
       }
