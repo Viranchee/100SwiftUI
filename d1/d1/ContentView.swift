@@ -9,13 +9,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello World")
+  var body: some View {
+    Form {
+      // Group limitation
+      Group {
+        Text("Hello 2")
+        Text("Hello")
+      }
+      Group {
+        Text("WTF 1")
+        Text("WTF World")
+      }
     }
+    
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
