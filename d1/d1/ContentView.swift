@@ -9,29 +9,30 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var tapCount: Int = 0
   @State private var name: String = ""
   
   var body: some View {
-    
-    NavigationView {
-      Form {
-        Section {
-          Text("Hello 2")
-          TextField("Enter name", text: $name)
-          Text("Hello, your name is \(self.name)")
-        }
-        Section {
-          Text("WTF \(tapCount)")
-          Text("WTF World")
-        }
-      }.onTapGesture {
-        self.tapCount += 1
+    Form {
+      ForEach(0..<10) {
+        ShowTaps($0)
       }
-      .navigationBarTitle(Text("Viranchee"), displayMode: .large)
+      
     }
-    
   }
+}
+
+struct ShowTaps: View {
+  @State private var tapCount = 0
+  let id: Int
+  init(_ id: Int) {
+    self.id = id
+  }
+  var body: some View {
+    Text("\(id) was tapped \(tapCount) times").onTapGesture {
+      self.tapCount += 1
+    }
+  }
+  
 }
 
 struct ContentView_Previews: PreviewProvider {
