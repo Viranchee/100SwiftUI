@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State var tapCount: Int = 0
+  @State private var tapCount: Int = 0
+  @State private var name: String = ""
   
   var body: some View {
     
@@ -17,16 +18,17 @@ struct ContentView: View {
       Form {
         Section {
           Text("Hello 2")
-          Text("Hello").onTapGesture {
-            self.tapCount += 1
-            print(self.tapCount)
-          }
+          TextField("Enter name", text: $name)
+          Text("Hello, your name is \(self.name)")
         }
         Section {
-          Text("WTF 1")
+          Text("WTF \(tapCount)")
           Text("WTF World")
         }
-      }.navigationBarTitle(Text("Viranchee"), displayMode: .large)
+      }.onTapGesture {
+        self.tapCount += 1
+      }
+      .navigationBarTitle(Text("Viranchee"), displayMode: .large)
     }
     
   }
