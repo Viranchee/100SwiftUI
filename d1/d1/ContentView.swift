@@ -9,13 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State var tapCount: Int = 0
+  
   var body: some View {
     
     NavigationView {
       Form {
         Section {
           Text("Hello 2")
-          Text("Hello")
+          Text("Hello").onTapGesture {
+            self.tapCount += 1
+            print(self.tapCount)
+          }
         }
         Section {
           Text("WTF 1")
