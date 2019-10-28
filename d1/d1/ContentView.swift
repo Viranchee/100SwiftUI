@@ -10,15 +10,18 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    Form {
-      Section {
-        Text("Hello 2")
-        Text("Hello")
-      }
-      Section {
-        Text("WTF 1")
-        Text("WTF World")
-      }
+    
+    NavigationView {
+      Form {
+        Section {
+          Text("Hello 2")
+          Text("Hello")
+        }
+        Section {
+          Text("WTF 1")
+          Text("WTF World")
+        }
+      }.navigationBarTitle(Text("Viranchee"), displayMode: .large)
     }
     
   }
