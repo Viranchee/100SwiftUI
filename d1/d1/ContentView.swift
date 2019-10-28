@@ -9,30 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var name: String = ""
+  @State private var checkAmount = ""
+  @State private var numberOfPeople = 2
+  @State private var tipPercentageIndex = 2
+  
+  private let tipPercentages = [10, 15, 20, 25, 0]
   
   var body: some View {
-    Form {
-      ForEach(0..<10) {
-        ShowTaps($0)
+    Form{
+      Section {
+        TextField("Amount", text: $checkAmount).keyboardType(.decimalPad)
       }
-      
+      Section {
+        Text("\(checkAmount) $$$")
+      }
     }
   }
-}
-
-struct ShowTaps: View {
-  @State private var tapCount = 0
-  let id: Int
-  init(_ id: Int) {
-    self.id = id
-  }
-  var body: some View {
-    Text("\(id) was tapped \(tapCount) times").onTapGesture {
-      self.tapCount += 1
-    }
-  }
-  
 }
 
 struct ContentView_Previews: PreviewProvider {
