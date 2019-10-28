@@ -18,7 +18,8 @@ struct ContentView: View {
   var body: some View {
     Form{
       Section {
-        TextField("Amount", text: $checkAmount).keyboardType(.decimalPad)
+        TextField("Amount", text: $checkAmount)
+          .keyboardType(.decimalPad)
       }
       Section {
         Text("\(checkAmount) $$$")
