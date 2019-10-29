@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello World")
+  @State private var currentCard: Card = Card.random
+  
+  var body: some View {
+    NavigationView {
+      Text(currentCard.description)
+        .font(.system(size: 44, weight: .light, design: .rounded))
+      }.navigationBarHidden(true)
+    .onTapGesture {
+        self.currentCard = Card.random
     }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
