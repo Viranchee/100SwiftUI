@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RandomCard/RandomCard.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:d1/d1.xcodeproj">
    </FileRef>
 </Workspace>
