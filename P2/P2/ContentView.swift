@@ -14,14 +14,15 @@ struct ContentView: View {
           return change ? "true" : "false"
       }
     var body: some View {
-        VStack(alignment: .center, spacing: 20) {
+        VStack {
             Text("Hello, World! \(changeText)")
-            Text("Hello, Line 2π!")
-            Button("Change") { self.change.toggle() }
-                .foregroundColor(.green)
-                .padding()
+            Button(action: {
+                self.change.toggle()
+                print("Button was tapped \(self.changeText)")
+            }) { Text("Tap Me!") }
         }
         .padding()
+        .background(LinearGradient(gradient: Gradient(colors: [.pink, .purple]), startPoint: .leading, endPoint: .trailing))
     }
 }
 
