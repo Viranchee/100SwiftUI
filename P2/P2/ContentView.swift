@@ -9,17 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var change: Bool = true
+    @State private var change: Bool = true
+    @State private var showingAlert = false
+    
     var changeText: String {
-          return change ? "true" : "false"
-      }
+        return change ? "true" : "false"
+    }
+    
     var body: some View {
         VStack {
             Text("Hello, World! \(changeText)")
-            Button(action: {
-                self.change.toggle()
-                print("Button was tapped \(self.changeText)")
-            }) { Text("Tap Me!") }
+            Button("ShowAlert") {
+                self.showingAlert = true
+            }.alert(isPresented: $showingAlert) {
+                Alert(title: Text("Hello"))
+            }
         }
         .padding()
         .background(LinearGradient(gradient: Gradient(colors: [.pink, .purple]), startPoint: .leading, endPoint: .trailing))
